@@ -3,8 +3,7 @@ import time
 import keyboard
 import customtkinter as ct
 import sys
-import pyautogui  
-import random
+import pyautogui
 
 # Global flags
 main_function_paused = False
@@ -17,6 +16,8 @@ Y1entry = None
 
 X2entry = None
 Y2entry = None
+
+foodCounter = 0
 
 coords = []  # Global variable to store coordinate pairs
 
@@ -124,7 +125,7 @@ def main_function():
 
 def secondary_function():
     """Function to pause the main function every 30 minutes for 10 seconds."""
-    global main_function_paused, exit_program
+    global main_function_paused, exit_program, foodCounter
 
     while not exit_program:
         time.sleep(30 * 60)  # Wait for 30 minutes
@@ -132,7 +133,15 @@ def secondary_function():
             break
         main_function_paused = True
         print("Pausing main function for 10 seconds...")
-        time.sleep(10)  # Pause for 10 seconds
+        # -
+        time.sleep(1)  # Pause for 10 seconds
+        if foodCounter <= 10:
+            pyautogui.press("2")
+        else:
+            continue
+
+        time.sleep(5)
+        # -
         main_function_paused = False
         print("Resuming main function...")
 

@@ -135,12 +135,9 @@ def secondary_function():
         print("Pausing main function for 10 seconds...")
         # -
         time.sleep(1)  # Pause for 10 seconds
-        if foodCounter <= 10:
-            pyautogui.press("2")
-        else:
-            continue
+        pyautogui.press("2")
 
-        time.sleep(5)
+        time.sleep(10)
         # -
         main_function_paused = False
         print("Resuming main function...")
